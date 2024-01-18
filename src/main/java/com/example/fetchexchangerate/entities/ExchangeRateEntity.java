@@ -1,4 +1,4 @@
-package com.example.demo_20240115.entities;
+package com.example.fetchexchangerate.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,13 +1,13 @@
-package com.example.demo_20240115.services;
+package com.example.fetchexchangerate.services;
 
-import com.example.demo_20240115.entities.ExchangeRateEntity;
+import com.example.fetchexchangerate.entities.ExchangeRateEntity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import com.example.demo_20240115.repositories.ExchangeRateRepository;
+import com.example.fetchexchangerate.repositories.ExchangeRateRepository;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
