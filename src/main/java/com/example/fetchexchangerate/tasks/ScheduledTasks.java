@@ -14,7 +14,7 @@ public class ScheduledTasks {
         this.service = service;
     }
 
-    @Scheduled(cron = "0 00 18 * * ?")
+    @Scheduled(cron = "0 0 18 * * ?")
     public void fetchDailyExchangeRate() throws JsonProcessingException {
         service.getExchangeRate();
     }
