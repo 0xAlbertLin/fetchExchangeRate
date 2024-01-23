@@ -54,8 +54,35 @@ public class ForexServiceTest {
     }
 
     @Test
-    public void testGetExchangeRates_DateRangeError() {
+    public void testGetExchangeRates_DateRangeError_StartDateError() {
         LocalDate startDate = LocalDate.now().minusYears(2);
+        LocalDate endDate = LocalDate.now().minusDays(1);
+        String currencyPair = "USD/TWD";
+
+        BaseResponse<List<ForexResponse>> response = forexService.getExchangeRates(startDate, endDate, currencyPair);
+
+        assertNotNull(response);
+        assertEquals("E001", response.getError().getCode());
+        assertNull(response.getCurrency());
+    }
+
+    @Test
+    public void testGetExchangeRates_DateRangeError_EndDateError() {
+
+        LocalDate startDate = LocalDate.now().minusYears(1);
+        LocalDate endDate = LocalDate.now().plusDays(1);
+        String currencyPair = "USD/TWD";
+
+        BaseResponse<List<ForexResponse>> response = forexService.getExchangeRates(startDate, endDate, currencyPair);
+
+        assertNotNull(response);
+        assertEquals("E001", response.getError().getCode());
+        assertNull(response.getCurrency());
+    }
+
+    @Test
+    public void testGetExchangeRates_DateRangeError_EndDateIsToday() {
+        LocalDate startDate = LocalDate.now().minusYears(1);
         LocalDate endDate = LocalDate.now();
         String currencyPair = "USD/TWD";
 
